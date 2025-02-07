@@ -26,6 +26,8 @@ public class Prenotazione {
     @JoinColumn(name = "postazione_id")
     private Postazione postazione;
 
+    private String data;
+
 }
 
 
