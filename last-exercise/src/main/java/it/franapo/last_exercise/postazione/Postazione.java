@@ -31,9 +31,6 @@ public class Postazione {
     @Column(nullable = false)
     private int numeroPosti;
 
-    @Column(nullable = false)
-    private String codice;
-
     @ManyToOne
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;

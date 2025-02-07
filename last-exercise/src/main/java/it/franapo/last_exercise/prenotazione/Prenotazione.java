@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "prenotazioni")
 @Data
@@ -26,7 +28,8 @@ public class Prenotazione {
     @JoinColumn(name = "postazione_id")
     private Postazione postazione;
 
-    private String data;
+    @Column(nullable = false)
+    private LocalDate data;
 
 }
 

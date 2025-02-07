@@ -17,7 +17,7 @@ public class Utente {
     private Long id;
 
     @Column(nullable = false, length = 50)
-    private Long username;
+    private String username;
 
     @Column(nullable = false, length = 50)
     private String realName;
