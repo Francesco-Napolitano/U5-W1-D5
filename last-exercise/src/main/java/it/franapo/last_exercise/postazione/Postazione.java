@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,8 +35,7 @@ public class Postazione {
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
 
-    @OneToOne
-    @JoinColumn(name = "prenotazione_id")
-    private Prenotazione prenotazione;
+    @OneToMany(mappedBy = "postazione")
+    private List<Prenotazione> prenotazione;
 
 }

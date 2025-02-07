@@ -1,9 +1,12 @@
 package it.franapo.last_exercise.edificio;
 
+import it.franapo.last_exercise.postazione.Postazione;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "edificio")
@@ -24,5 +27,8 @@ public class Edificio {
 
     @Column(nullable = false, length = 50)
     private String citta;
+
+    @OneToMany(mappedBy = "edificio")
+    private List<Postazione> postazione;
 
 }

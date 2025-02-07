@@ -1,12 +1,9 @@
 package it.franapo.last_exercise.utente;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import it.franapo.last_exercise.prenotazione.Prenotazione;
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.*;
 
 @Entity
 @Table(name = "utente")
@@ -16,6 +13,10 @@ import lombok.NoArgsConstructor;
 public class Utente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 50)
     private Long username;
 
     @Column(nullable = false, length = 50)
@@ -23,6 +24,9 @@ public class Utente {
 
     @Column(nullable = false, length = 50)
     private String email;
+
+    @OneToMany(mappedBy = "utente")
+    private Set<Prenotazione> prenotazione;
 
 
 }

@@ -1,6 +1,7 @@
 package it.franapo.last_exercise.prenotazione;
 
 import it.franapo.last_exercise.postazione.Postazione;
+import it.franapo.last_exercise.utente.Utente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,14 @@ public class Prenotazione {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
+
+    @ManyToOne
     @JoinColumn(name = "postazione_id")
-    private Postazione postazione;}
+    private Postazione postazione;
+
+}
+
+
